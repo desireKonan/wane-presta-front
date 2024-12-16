@@ -1,0 +1,239 @@
+@import "../variables/variables.scss";
+
+
+/*============== Text color Props ==============*/
+@each $key,
+$value in $themeAll {
+  .text-#{$key} {
+    color: #{$value} !important;
+  }
+}
+
+/*============== Backgroung color Props ==============*/
+@each $key,
+$value in $themeAll {
+  .bg-#{$key} {
+    background-color: #{$value} !important;
+  }
+}
+
+/*============== Border Props ==============*/
+/*# Border Color ==============*/
+@each $key,
+$value in $themeAll {
+  .border-#{$key} {
+    border-color: #{$value} !important;
+  }
+}
+
+/*# Border All ==============*/
+@each $key,
+$value in $themeAll {
+  @for $i from 1 through 5 {
+    .border-#{$key}-#{$i} {
+      border: $value #{$i}px solid !important;
+    }
+  }
+}
+
+/*# Border Angle Wise ==============*/
+@each $key,
+$value in $themeAll {
+
+  /*# Border color wise ==============*/
+  @each $angle in $angles {
+
+    /*#Angle*/
+    @for $i from 1 through 5 {
+      .border-#{$angle}-#{$key}-#{$i} {
+        border-#{$angle}: $value #{$i}px solid !important;
+      }
+    }
+  }
+}
+
+/*============== font-wight Props ============*/
+@for $i from 1 through 9 {
+  .fw-#{$i * 100} {
+    font-weight: $i * 100 !important;
+  }
+}
+
+/*============== font-size Props ============ */
+@for $i from 1 through 70 {
+  .fs-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+/*============== width Props ============ */
+@for $i from 1 through 100 {
+  .width-#{$i} {
+    width: #{$i}px !important;
+  }
+}
+
+/*============== row-columan Props ============ */
+.row {
+  --mk-gutter-x: 1.5rem;
+  --mk-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--mk-gutter-y));
+  margin-right: calc(-.5 * var(--mk-gutter-x));
+  margin-left: calc(-.5 * var(--mk-gutter-x));
+
+
+  &>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--mk-gutter-x) * .5);
+    padding-left: calc(var(--mk-gutter-x) * .5);
+    margin-top: var(--mk-gutter-y);
+  }
+
+}
+
+@for $i from 12 through 1 {
+  $total : calc(100 / 12);
+
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: #{$total  * $i}#{"%"};
+    margin-bottom: 10px;
+
+    // @include maxMediaQuery($md) {
+    //   margin-bottom: 20px;
+    // }
+
+    // @include maxMediaQuery($sm) {
+    //   margin-bottom: 10px;
+    // }
+  }
+}
+
+@each $size,
+$value in $responsive {
+  @media (min-width: #{$value}px) {
+    @for $i from 12 through 1 {
+      $total : calc(100 / 12);
+
+      .col-#{$size}-#{$i} {
+        flex: 0 0 auto;
+        width: #{$total  * $i}#{"%"};
+        margin-bottom: 10px;
+
+        // @include maxMediaQuery($md) {
+        //   margin-bottom: 10px;
+        // }
+
+        // @include maxMediaQuery($sm) {
+        //   margin-bottom: 10px;
+        // }
+      }
+    }
+  }
+}
+
+/*============== margin-padding Props ============ */
+@mixin margin-padding($length, $class) {
+  @if $class == m {
+    .m-auto {
+      margin: auto !important;
+    }
+
+    .m-auto-right {
+      margin-right: auto !important;
+    }
+
+    .m-auto-left {
+      margin-left: auto !important;
+    }
+  }
+
+  @for $i from 0 through 70 {
+    .#{$class}#{$i} {
+      #{$length}: #{$i}px !important;
+    }
+
+    @each $angle in $angles {
+      .#{$class}#{$i}-#{$angle} {
+        #{$length}-#{$angle}: #{$i}px !important;
+      }
+    }
+
+    .#{$class}#{$i}-y {
+      #{$length}-top: #{$i}px !important;
+      #{$length}-bottom: #{$i}px !important;
+    }
+
+    .#{$class}#{$i}-x {
+      #{$length}-left: #{$i}px !important;
+      #{$length}-right: #{$i}px !important;
+    }
+  }
+
+
+}
+
+/*============== Padding ============ */
+@include margin-padding(padding, p);
+
+/*============== Margin ============ */
+@include margin-padding(margin, m);
+
+dl,
+ol,
+ul,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ol,
+ul {
+  padding-left: 0;
+}
+
+.h-100vh{
+  height: 100vh !important;
+}
+
+.cursor{
+  cursor: pointer;
+}
+/*============== skeleton ============ */
+.skeleton {
+  background-color: #e2e5e7 !important;
+  min-height: 15px !important;
+  background-image :
+    linear-gradient(90deg,
+      rgba(#fff, 0),
+      rgba(#fff, 0.5),
+      rgba(#fff, 0)) !important;
+  background-size: 40px 100% !important; 
+  background-repeat: no-repeat !important; 
+  background-position: left -40px top 0 !important; 
+  animation: shine .5s ease infinite !important; 
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0 !important;
+  }
+}
+
+@for $i from 1 through 100 {
+  .br-#{$i} {
+    border-radius: #{$i}px !important;
+  }
+}
+
+.dot-status{
+height: 13px;
+width: 13px;
+  border-radius:50%
+}
+
+
+

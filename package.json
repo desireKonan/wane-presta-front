@@ -1,0 +1,47 @@
+{
+  "name": "handy-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 6020",
+    "build": "next build",
+    "start": "next start -p 6020",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.14",
+    "@reduxjs/toolkit": "^2.2.3",
+    "@types/jquery": "^3.5.29",
+    "axios": "^1.6.8",
+    "dayjs": "^1.11.10",
+    "jquery": "^3.7.1",
+    "jwt-decode": "^4.0.0",
+    "moment": "^2.30.1",
+    "multiselect-react-dropdown": "^2.0.25",
+    "next": "14.1.4",
+    "react": "^18",
+    "react-apexcharts": "^1.4.1",
+    "react-bootstrap-daterangepicker": "^8.0.0",
+    "react-datepicker": "^4.24.0",
+    "react-dom": "^18",
+    "react-dropzone": "^14.2.3",
+    "react-loading-skeleton": "^3.4.0",
+    "react-redux": "^9.1.0",
+    "react-simple-star-rating": "^5.1.7",
+    "react-toastify": "^10.0.5",
+    "reselect": "^5.1.0",
+    "sass": "^1.77.5",
+    "sharp": "^0.33.3",
+    "sweetalert2": "^11.10.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18.2.77",
+    "@types/react-datepicker": "^6.2.0",
+    "@types/react-dom": "^18.2.25",
+    "@types/react-toastify": "^4.1.0",
+    "typescript": "^5.4.5"
+  }
+}

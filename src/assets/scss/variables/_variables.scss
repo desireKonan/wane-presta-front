@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// font-family: 'Jost', sans-serif;
+// font-family: "Poppins", sans-serif;
+
+$font-prime : "Poppins", sans-serif;
+$font-second : "Poppins", sans-serif;
+
+$prime: #FEEFF2;
+$second: rgba(28, 43, 32, 0.514);
+$third: #394149;
+$fourth: #F2F5FA;
+$dark: #000000;
+$darkGray: #6D7080;
+$light: #ffffff;
+$gray: #b1b1b1;
+$gray2: #d8d8d8;
+$white : #fff;
+$lightGray: #f3f3f3;
+$lightBlue: #F3F6F9;
+$transparent: transparent;
+$theme: #092C1C;
+$themeparot : #ADDE34;
+$themeBlue:  #101c4a;
+$themeLight: rgba(28, 43, 32, 0.3882352941);
+$themesky: #93cbd742;
+$button:#f71845;
+//success
+
+$success: #198754;
+$success-light: #D1E7DD;
+$soLight:#0f6f8527;
+//blue
+$blue: #0D6EFD;
+$blue-light: #CFE2FF;
+
+//red
+$danger: #DC3545;
+$danger-light: #F8D7DA;
+
+//yellow
+$warning: #FFC107;
+$warning-light: #FFF3CD;
+$themeAll : ("prime":$prime,
+  "second":$second,
+  "third":$third,
+  "fourth":$fourth,
+  "dark":$dark,
+  "darkGray":$darkGray,
+  "light":$light,
+  "gray":$gray,
+  "gray2":$gray2,
+  "lightGray":$lightGray,
+  "transparent":$transparent,
+  "success":$success,
+  "success-light":$success-light,
+  "blue":$blue,
+  "blue-light":$blue-light,
+  "danger":$danger,
+  "danger-light":$danger-light,
+  "warning":$warning,
+  "warning-light":$warning-light,
+  "theme":$theme,
+  "themeLight":$themeLight,
+  "themeparot" : $themeparot,
+  "soLight":$soLight,
+  "button":$button,
+);
+
+$angles : ("top",
+  "right",
+  "bottom",
+  "left",
+);
+
+$responsive : ("xsm":400,
+  "smm":450,
+  "sm":576,
+  "md":768,
+  "lg":992,
+  "xl":1200,
+  "xxl":1400,
+);
+
+$xsm: 400px;
+$smm: 450px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$suns-font: 'Source Sans 3', sans-serif;
+
+$transition-3 : .3s;
+$transition-2 : .2s;
+$transition-4 : .4s;
+$transition-5 : .5s;
+
+$prime-shadow : 0 0 12px rgba(15, 34, 58, 0.121);
+
+@mixin midels($display, $jContent, $align) {
+  display: $display;
+  justify-content: $jContent;
+  align-items: $align;
+}
+
+@mixin maxMediaQuery($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin minMediaQuery($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}

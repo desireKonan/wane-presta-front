@@ -1,0 +1,806 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  background-color: white !important;
+}
+
+.mainAdminGrid {
+  /* ============= Sidebar CSS ============= */
+  background-color: #FDFFFC;
+  box-shadow: 0 0 1px #f1f3f0;
+  /*Small Size*/
+  /* ============= Dashboard CSS ============= */
+}
+.mainAdminGrid .mainSidebar {
+  color: #6D7080;
+  height: 100vh;
+  padding: 25px;
+  font-size: 15px;
+  transition: 0.4s;
+  /* Side Menu Toggle JS CSS */
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid .mainSidebar {
+    position: relative;
+    z-index: 99;
+    padding: 0;
+    width: 250px;
+    box-shadow: 11px 2px 12px rgba(15, 34, 58, 0.121);
+  }
+}
+.mainAdminGrid .mainSidebar .sideBar {
+  width: 100%;
+  background-color: #ffffff;
+  height: 100%;
+  box-shadow: 0 2px 4px rgba(15, 34, 58, 0.1215686275);
+  overflow-x: auto;
+}
+.mainAdminGrid .mainSidebar .sideBar .sideBarLogo {
+  padding: 15px;
+}
+.mainAdminGrid .mainSidebar .sideBar .sideBarLogo .logo {
+  display: block;
+}
+.mainAdminGrid .mainSidebar .sideBar .sideBarLogo .logo h3 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mainAdminGrid .mainSidebar .sideBar .sideBarLogo .logo img {
+  height: 40px;
+  width: 40px;
+}
+.mainAdminGrid .mainSidebar .sideBar .sideBarLogo .closeIcon {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid .mainSidebar .sideBar .sideBarLogo {
+    display: flex;
+    justify-content: space-between;
+  }
+  .mainAdminGrid .mainSidebar .sideBar .sideBarLogo .closeIcon {
+    display: block;
+    font-size: 18px;
+  }
+  .mainAdminGrid .mainSidebar .sideBar .sideBarLogo .logo {
+    margin: unset;
+  }
+  .mainAdminGrid .mainSidebar .sideBar .sideBarLogo .blackBox {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6901960784);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.2s;
+  }
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu .navTitle {
+  text-align: start;
+  padding-left: 10px;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu .activeMenu {
+  text-align: start;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > .activeMenu {
+  color: #092C1C !important;
+  background-color: #f5f5f5;
+  border-left: 3px solid #092C1C;
+  border-radius: 0 0 0 0;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > .activeMenu > div > svg > path {
+  fill: #092C1C !important;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > .activeMenu > div > svg > g > path {
+  fill: #092C1C !important;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > a div span {
+  display: inline;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > a > i {
+  display: block;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > a:hover {
+  color: white !important;
+  background-color: #ADDE34;
+  border-left: 3px solid #092C1C;
+  border-radius: 0 0 0 0;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > a:hover > div > svg > path {
+  fill: #fff !important;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu > li > a:hover > div > svg > g > path {
+  fill: #fff !important;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li {
+  margin: 5px 0;
+  border-radius: 10px;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li a {
+  color: #092C1C;
+  padding: 10px 25px;
+  transition: 0s;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li a:hover {
+  color: #ADDE34;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li a i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li .subMenu {
+  padding-left: 28px;
+  padding-top: 10px;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li .subMenu .subhead {
+  text-align: start;
+  display: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #092C1C;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li .subMenu li > .activeMenu {
+  color: #092C1C;
+  border-radius: 0 0 0 0;
+  font-weight: bold;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li .subMenu li a {
+  position: relative;
+}
+.mainAdminGrid .mainSidebar .sideBar .navigation .mainMenu li .subMenu li a::before {
+  content: "";
+  width: 6px;
+  height: 2px;
+  background-color: #6D7080;
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transition: 0.4s;
+  opacity: 1;
+}
+.mainAdminGrid.subtext:hover {
+  color: #ADDE34;
+}
+.mainAdminGrid.webAdminGrid .mainSidebar {
+  padding: 25px 25px 0 25px;
+  height: 100%;
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    box-shadow: unset;
+    z-index: 4;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar {
+    width: 50px;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .sideBar {
+  height: 100%;
+  overflow: unset;
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .sideBar {
+    overflow: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .sideBarLogo {
+    padding: 12px;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .sideBarLogo .logo h3 {
+  display: none;
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .sideBarLogo .logo img {
+  transition: 0.5s;
+  height: 35px;
+  width: 35px;
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .sideBarLogo .closeIcon {
+    display: none;
+  }
+  .mainAdminGrid.webAdminGrid .mainSidebar .sideBarLogo .blackBox {
+    left: -100%;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu .navTitle {
+  display: none;
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li {
+  position: relative;
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li > a {
+  padding-left: 18px;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li > a {
+    padding-left: 15px;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li > a div span {
+  display: none;
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li > a div i {
+  font-size: 24px;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li > a div i {
+    font-size: 20px;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li > a > i {
+  font-size: 24px;
+  display: none;
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li:hover .subMenu {
+  display: block !important;
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li .subMenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  padding-left: 0;
+  padding: 18px 10px 10px;
+  background-color: #ffffff;
+  white-space: nowrap;
+  min-width: 200px;
+  box-shadow: 0 2px 4px rgba(15, 34, 58, 0.1215686275);
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li .subMenu {
+    min-width: 160px;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li .subMenu .subhead {
+  font-weight: 600;
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li .subMenu .subhead {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li .subMenu li a {
+  position: relative;
+  padding-left: 20px;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li .subMenu li a {
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+}
+.mainAdminGrid.webAdminGrid .mainSidebar .navigation .mainMenu > li .subMenu li a::before {
+  display: none;
+}
+.mainAdminGrid .mainAdmin {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 30px 0 15px;
+  /* ============= Navbar CSS ============= */
+  /* ============= Admin CSS ============= */
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainAdmin {
+    padding: 0 10px 0 3px;
+  }
+}
+.mainAdminGrid .mainAdmin .mainNavbar {
+  position: sticky;
+  top: 0;
+  margin: 25px 0;
+  transition-delay: 1s;
+  z-index: 3;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainAdmin .mainNavbar {
+    margin: 10px 0;
+  }
+}
+.mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar {
+  background-color: #ADDE34;
+  height: 100%;
+  padding: 13px 30px;
+  box-shadow: 0 0 5px rgba(28, 43, 32, 0.3882352941);
+  border-radius: 15px;
+}
+.mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .leftNav i {
+  color: #ffffff;
+}
+.mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .rightNav .adminProfile .adminPic {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .rightNav .adminProfile .adminPic img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.616);
+  padding: 2px;
+}
+.mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .rightNav .adminProfile .adminDetails h6 {
+  font-size: 16px;
+  color: #ffffff;
+}
+.mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .rightNav .adminProfile .adminDetails p {
+  font-size: 14px;
+  color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar {
+    padding: 8px 10px;
+  }
+  .mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .rightNav .adminProfile .adminPic {
+    height: 30px;
+    width: 30px;
+  }
+  .mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .rightNav .adminProfile .adminDetails h6 {
+    font-size: 12px;
+  }
+  .mainAdminGrid .mainAdmin .mainNavbar .navBar .innerNavbar .rightNav .adminProfile .adminDetails p {
+    font-size: 10px;
+  }
+}
+.mainAdminGrid .mainAdmin .adminStart {
+  max-height: calc(100vh - 117px);
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard .dashBoardHead h3 {
+    font-size: 18px;
+  }
+  .mainAdminGrid .mainDashboard .dashBoardHead p {
+    font-size: 14px;
+  }
+}
+.mainAdminGrid .mainDashboard .mainDashbox {
+  margin-top: 15px;
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox {
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #D6D6D6;
+  height: 110px;
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .dashIconBox {
+  background-color: #092C1C;
+  border-radius: 20px 0 0 20px;
+  height: 100%;
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .dashIconBox .dashIcon i {
+  font-size: 40px !important;
+  color: white !important;
+  text-align: center;
+  align-self: center;
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxContent .boxTitle p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6D7080;
+  margin-top: 15px;
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxContent .boxTitle p {
+    font-size: 14px;
+  }
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxContent .boxAmount p {
+  font-size: 30px;
+  color: #092C1C;
+  margin-top: 0px;
+  font-weight: 700;
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxContent .boxAmount p {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxContent .boxAmount p {
+    font-size: 26px;
+  }
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxBody {
+  margin-top: 15px;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxBody {
+    margin-top: 7px;
+  }
+  .mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxBody h2 {
+    font-size: 20px;
+  }
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxFooter {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxFooter .boxLink a {
+  border-bottom: solid 1px;
+  font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxFooter .boxLink a {
+    font-size: 12px;
+  }
+}
+.mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxFooter .boxIcon {
+  width: 55px;
+  height: 55px;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard .mainDashbox .dashBox .boxFooter .boxIcon {
+    width: 40px;
+    height: 40px;
+  }
+}
+.mainAdminGrid .mainDashboard #chart {
+  max-height: 500px !important;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.mainAdminGrid .mainDashboard #chart .apexcharts-toolbar {
+  z-index: 3 !important;
+}
+.mainAdminGrid .mainDashboard #chart .apexcharts-title-text {
+  font-size: 18px !important;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard #chart .apexcharts-title-text {
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 768px) and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard #chart .apexcharts-title-text {
+    font-size: 12px !important;
+  }
+}
+.mainAdminGrid .mainDashboard #chart .apexcharts-toolbar div[title="Selection Zoom"], .mainAdminGrid .mainDashboard #chart .apexcharts-toolbar div[title=Panning], .mainAdminGrid .mainDashboard #chart .apexcharts-toolbar .apexcharts-zoomin-icon,
+.mainAdminGrid .mainDashboard #chart .apexcharts-toolbar .apexcharts-zoomout-icon,
+.mainAdminGrid .mainDashboard #chart .apexcharts-toolbar .apexcharts-reset-icon {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard #chart .apexcharts-toolbar .apexcharts-menu-icon {
+    display: none;
+  }
+}
+.mainAdminGrid .mainDashboard #chart .apexcharts-toolbar > div {
+  margin: 0 5px;
+}
+.mainAdminGrid .mainDashboard #chart .apexcharts-toolbar > div svg {
+  fill: rgba(28, 43, 32, 0.514);
+  height: 30px;
+  width: 30px;
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid .mainDashboard #chart .apexcharts-toolbar > div svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+.mainAdminGrid .mainAdminProfile .adminProfileBox {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  padding: 30px 20px;
+  background-color: rgba(15, 111, 133, 0.0823529412);
+}
+.mainAdminGrid .mainAdminProfile .adminProfileBox .adminImg img {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+}
+.mainAdminGrid .mainAdminProfile .adminProfileBox .adminData {
+  margin-top: 10px;
+}
+.mainAdminGrid .mainSetting .settingBox .settingBoxOuter {
+  border: 1px solid #cfcfcf;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fcfdff;
+}
+.mainAdminGrid .mainSetting .settingBox .settingBoxOuter .settingBoxHeader {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* ============= Product CSS ============= */
+.productShowColorDetails {
+  padding: 30px 20px;
+  margin: 20px 0;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1725490196);
+}
+.productShowColorDetails ~ .mainTable {
+  max-height: 444px !important;
+}
+.productShowColorDetails .productDefault {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+  .productShowColorDetails .productDefault {
+    font-size: 12px;
+  }
+}
+.productShowColorDetails .productDefault span:first-child {
+  color: rgba(28, 43, 32, 0.514);
+}
+.productShowColorDetails .productDefault span:last-child {
+  text-transform: capitalize;
+}
+
+.colorRound {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.inputfile:focus + label {
+  outline: 1px dotted #000 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+[role=button],
+a,
+area,
+button,
+input:not([type=range]),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+.camera {
+  padding: 10px 15px;
+}
+
+.chip {
+  background-color: #092C1C !important;
+  cursor: pointer !important;
+}
+
+.optionListContainer .option {
+  background: #092C1C;
+  color: white;
+  font-size: 16px;
+}
+
+.optionListContainer .option:hover {
+  background: rgb(194, 194, 194);
+  color: black;
+}
+
+.interested-topics .searchBox {
+  cursor: pointer !important;
+}
+
+.expertDataTitle {
+  width: 100px !important;
+  font-weight: bold;
+}
+
+.expertBox {
+  box-shadow: 0 0 20px rgba(23, 30, 39, 0.231);
+  border: 1px solid rgba(192, 192, 192, 0.37);
+}
+
+.expertDataList {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.rc-time-picker {
+  width: 100% !important;
+}
+.rc-time-picker .rc-time-picker-input:focus {
+  outline-color: rgba(28, 43, 32, 0.514);
+  outline-width: 1px;
+}
+.rc-time-picker .rc-time-picker-input::-moz-placeholder {
+  color: #b1b1b1;
+  font-size: 16px;
+}
+.rc-time-picker .rc-time-picker-input::placeholder {
+  color: #b1b1b1;
+  font-size: 16px;
+}
+@media screen and (max-width: 992px) {
+  .rc-time-picker .rc-time-picker-input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .rc-time-picker .rc-time-picker-input::placeholder {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .rc-time-picker .rc-time-picker-input {
+    padding: 0 15px;
+    height: 38px;
+    margin-top: 2px;
+    font-size: 12px;
+  }
+  .rc-time-picker .rc-time-picker-input::-moz-placeholder {
+    font-size: 12px;
+  }
+  .rc-time-picker .rc-time-picker-input::placeholder {
+    font-size: 12px;
+  }
+}
+
+.mainDiaogBox label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 15px;
+  color: #7e7e7e;
+}
+
+.rc-time-picker-clear {
+  display: none !important;
+}
+
+.tsBox {
+  padding-top: 10px !important;
+  padding-bottom: 15px !important;
+  border: 1px solid #EBEBEB;
+  border-radius: 10px;
+}
+
+.extraPadding {
+  padding-left: 135px;
+}
+@media screen and (max-width: 576px) {
+  .extraPadding {
+    padding-left: 20px;
+  }
+}
+
+.extraMargin {
+  margin-left: 120px;
+}
+@media screen and (max-width: 576px) {
+  .extraMargin {
+    margin-left: 20px;
+  }
+}
+
+.userProfile .boxShadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.focusNone input:focus {
+  outline: none !important;
+}
+.focusNone textarea:focus {
+  outline: none !important;
+}
+
+.inputNoFocus {
+  outline: none !important;
+}
+
+.upIndex {
+  z-index: 99999 !important;
+}
+
+.statusShow h6 {
+  padding: 4px !important;
+  border-radius: 0.375rem !important;
+  margin-right: 1rem !important;
+  font-size: 1rem;
+}
+.statusShow .cancelStatus {
+  background-color: rgba(251, 175, 190, 0.5);
+  color: #b3092b;
+}
+.statusShow .pendingStatus {
+  background-color: rgba(203, 210, 246, 0.5);
+  color: #2236a8;
+}
+.statusShow .completedStatus {
+  background-color: rgba(147, 231, 195, 0.5);
+  color: #1a8a59;
+}
+
+.activeBtn {
+  background-color: #ADDE34 !important;
+  color: #fff;
+}
+
+.disabledBtn {
+  background-color: #ffffff;
+  color: #1f1e1e;
+}
+
+.activeBtn,
+.disabledBtn {
+  padding: 10px 16px;
+  border-radius: 40px;
+  font-size: 17px;
+}
+
+.react-datepicker-popper {
+  z-index: 99 !important;
+}
+
+.apexcharts-legend-marker {
+  height: 25px !important;
+  width: 25px !important;
+  border-radius: 5px !important;
+  margin-right: 10px !important;
+}
+
+.apexcharts-legend-text {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  margin-right: 8px;
+}
+
+.optionListContainer {
+  width: 30% !important;
+}
+@media screen and (max-width: 576px) {
+  .optionListContainer {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .optionListContainer {
+    width: 50% !important;
+  }
+}
+
+.icon_cancel, #search_input {
+  display: none !important;
+  cursor: none !important;
+}
+
+.style-module_fillIcons__6---A > svg, .style-module_emptyIcons__Bg-FZ > svg {
+  height: 25px !important;
+  width: 25px !important;
+}
+
+.label {
+  font-size: 14px;
+  color: #7e7e7e;
+  font-weight: 500;
+}
+
+.setting {
+  max-width: 637px;
+  border: 1px solid #1c2b20;
+  padding: 4px;
+  border-radius: 40px;
+}
+@media screen and (max-width: 576px) {
+  .setting {
+    padding: 10px;
+  }
+}
+
+.expert_width {
+  max-width: 343px;
+  border: 1px solid #1c2b20;
+  padding: 4px;
+  border-radius: 40px;
+}/*# sourceMappingURL=style.css.map */

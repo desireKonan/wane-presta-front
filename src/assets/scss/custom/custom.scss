@@ -1,0 +1,1588 @@
+@import "../variables/variables";
+
+body {
+  // background-color: #2e2e2e;
+  font-size: 18px;
+  font-family: $font-prime;
+  background-color: #fcfffc
+  ;
+}
+
+:invalid {
+  outline: none;
+  color: red;
+}
+
+.font-prime {
+  font-family: $font-prime;
+}
+
+.font-second {
+  font-family: $font-second;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.rotate90 {
+  transform: rotate(90deg);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+.midBox {
+  @include midels(flex, center, center);
+}
+
+.betBox {
+  @include midels(flex, space-between, center);
+}
+
+
+
+@for $i from 1 through 6 {
+  .h#{$i},
+  h#{$i} {
+    font-weight: bold;
+    font-family: $font-prime;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $second;
+  border-radius: 10px;
+}
+
+/* Admin Penal Setup */
+.mainAdminGrid {
+  transition: 0.4s;
+  display: grid;
+  grid-template-areas:
+    "sideBar admin"
+    "sideBar admin";
+  grid-template-columns: 300px auto;
+
+  &.webAdminGrid {
+    grid-template-columns: 110px auto;
+  }
+
+  @include maxMediaQuery($lg) {
+    grid-template-columns: 0px auto;
+
+    &.webAdminGrid {
+      grid-template-columns: 70px auto;
+    }
+  }
+
+  @include maxMediaQuery($md) {
+    &.webAdminGrid {
+      grid-template-columns: 60px auto;
+    }
+  }
+
+  & .mainSidebar {
+    grid-area: sideBar;
+  }
+
+  & .mainAdmin {
+    grid-area: admin;
+  }
+}
+
+/* Email Submits */
+.emailSubmit {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+
+  & .webEmail {
+    width: 100%;
+    max-width: 380px;
+    height: 55px;
+    border: transparent;
+    border-radius: 5px;
+    padding: 0 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: $font-prime;
+    font-weight: 600;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & .mk-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border: transparent;
+    padding: 10px;
+    background-color: #f1f1f1;
+    width: 80px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+.dark-btn {
+  background-color: $dark;
+  display: inline-block;
+  color: $light;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.mk-active {
+  background-color: $dark;
+  // padding: 0 10px;
+  border-radius: 50%;
+  height: 33px;
+  width: 33px;
+  color: $light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ================ Loader CSS ===================
+
+.mainLoader {
+  height: 100%;
+  width: 100%;
+  background-color: #0000003d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    & div {
+      position: absolute;
+      border: 4px solid #fff;
+      opacity: 1;
+      border-radius: 50%;
+      animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+      &:nth-child(2) {
+        animation-delay: -0.5s;
+      }
+    }
+
+    @keyframes lds-ripple {
+      0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+
+      4.9% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+
+      5% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+
+      100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// ================ Input CSS ===================
+.inputData {
+  font-family: $font-prime!important;
+  font-size: 20px;
+  position: relative!important;
+  text-align: start!important;
+
+  & .errorMessage {
+    margin-top: 5px;
+    font-size: 16px;
+    color: red;
+    // display: none;
+
+    @include maxMediaQuery($md) {
+      font-size: 14px;
+    }
+
+    @include maxMediaQuery($sm) {
+      font-size: 12px;
+    }
+  }
+
+  & input:invalid ~ .errorMessage {
+    color: red;
+    display: block;
+  }
+
+  
+  & label {
+    user-select: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+    color: darken($gray, 20%);
+
+    // Tablate Device
+    @include maxMediaQuery($sm) {
+      font-size: 12px;
+    }
+  }
+
+  /*Tablate Device*/
+  @include maxMediaQuery($lg) {
+    font-size: 16px;
+  }
+
+  & .multiImage {
+    max-height: 200px;
+    overflow: auto;
+
+    & > div[data-index="index"] {
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      margin-left: 0;
+      position: relative;
+
+      & > div[data-remove="remove"] {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        width: 20px;
+        height: 20px;
+        background-color: $second;
+        color: $light;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      & img[data-class="showImage"] {
+        margin-top: 0;
+      }
+    }
+  }
+
+  /* Image Input */
+  & img[data-class="showImage"] {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 20px;
+    margin-left: 0;
+  }
+
+  /* Normal Select */
+  & .selectMain {
+    font-family: $font-prime;
+    position: relative;
+    display: inline;
+    width: 100%;
+
+    & .selectBox {
+      font-size: 18px;
+      width: 100%;
+      // max-width: 380px;
+      border-radius: 5px;
+      padding: 10px;
+      appearance: none;
+      background-color: transparent;
+      border: 1px solid #cecece;
+      text-align: start;
+      height: auto;
+
+      & .showSelectValue {
+        & p {
+          display: block;
+        }
+
+        & input {
+          display: none;
+        }
+      }
+
+      @include maxMediaQuery($md) {
+        font-size: 12px;
+        padding: 5px;
+      }
+
+      &::after {
+        display: none;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    & ul {
+      // max-width: 380px;
+      position: absolute;
+      top: calc(100% - 25px);
+      margin: 0px;
+      background-color: $light;
+      box-shadow: $prime-shadow;
+
+      &.topSide {
+        bottom: 100%;
+        top: auto;
+      }
+
+      &.bottomSide {
+        top: 70%;
+        bottom: auto;
+      }
+
+      & li {
+        font-size: 16px;
+        padding: 3px 18px;
+        cursor: pointer;
+
+        &:first-child {
+          display: none;
+        }
+
+        &:hover {
+          background-color: $second;
+          color: $light;
+        }
+
+        @include maxMediaQuery($md) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .multiSelectionDisplay {
+    background-color: $gray2;
+    padding: 4px 12px;
+    display: inline-flex;
+    align-items: center;
+    margin: 5px 5px;
+  }
+
+  /* Input Select */
+  &.inputSelect {
+    & .selectMain {
+      width: 100%;
+      margin-top: 10px;
+      display: block;
+
+      @include maxMediaQuery($sm) {
+        margin-top: 3px;
+      }
+
+      & .selectBox {
+        & input {
+          &:focus {
+            outline: none;
+          }
+        }
+        border: none;
+        background-color: $lightGray;
+        padding: 7px 10px 7px 20px;
+
+        & .showSelectValue {
+          // & p {
+          //   display: none;
+          // }
+
+          & input {
+            display: block;
+          }
+        }
+
+        @include maxMediaQuery($lg) {
+          font-weight: 400;
+          padding: 10px 12px 10px 20px;
+          font-size: 16px;
+        }
+
+        @include maxMediaQuery($sm) {
+          padding: 10px 10px 10px 20px;
+          font-size: 12px;
+        }
+      }
+
+      & ul {
+        width: 100%;
+        z-index: 10;
+        max-height: 220px;
+        overflow: auto;
+
+        @include maxMediaQuery($lg) {
+          max-height: 135px;
+        }
+
+        & li {
+          font-size: 18px;
+          padding: 5px 18px;
+
+          &:first-child {
+            display: block;
+          }
+
+          @include maxMediaQuery($lg) {
+            font-size: 14px;
+          }
+
+          @include maxMediaQuery($sm) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  /*Text Area*/
+  & textarea {
+    width: 100%;
+    background-color: #FBFBFB;
+    border: 1px solid #cfcfcf !important;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+
+    &:focus {
+      outline-color: $second;
+      outline-width: 1px;
+    }
+
+    &::placeholder {
+      color: $gray;
+      font-size: 20px;
+    }
+
+    // Tablate Device
+    @include maxMediaQuery($lg) {
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+  }
+
+  & input {
+    width: 100%;
+    height: 40px;
+    // border-radius: 5px!important;
+    background-color: #fafafa;
+    padding: 0 20px;
+    margin-top: 5px;
+    font-size: 15px;
+    border-radius: 8px;
+    color: #000000 !important;
+    font-weight: 500;
+
+    &:focus {
+      outline-color: $second;
+      outline-width: 1px;
+    }
+
+    &::placeholder {
+      color: $gray;
+      font-size: 16px;
+    }
+
+    // Tablate Device
+    @include maxMediaQuery($lg) {
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+
+    // mobile Device
+    @include maxMediaQuery($sm) {
+      padding: 0 15px;
+      height: 38px;
+      margin-top: 2px;
+      font-size: 12px;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+
+    /* For Input Type Search */
+    &[type="search"]::-webkit-search-results-decoration,
+    &[type="search"]::-webkit-search-decoration,
+    &[type="search"]::-webkit-search-cancel-button,
+    &[type="search"]::-webkit-search-results-button {
+      font-size: 16px;
+    }
+
+    &[type="search"] {
+      border: 1px solid $theme;
+      border-radius: 20px 0 0 20px !important;
+
+   
+    
+      @include maxMediaQuery($sm) {
+        height: 30px;
+        font-size: 12px;
+
+        &::placeholder {
+          font-size: 12px;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    /* For Input Type Number */
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Type Radio And Check Box */
+    &[type="radio"],
+    &[type="checkbox"] {
+      height: 18px !important;
+      width: 18px !important;
+      accent-color: $second;
+      margin: 0;
+      cursor: pointer;
+      position: relative;
+
+      @include maxMediaQuery($lg) {
+        height: 16px !important;
+        width: 16px !important;
+      }
+
+      @include maxMediaQuery($md) {
+        height: 14px !important;
+        width: 14px !important;
+      }
+
+      &.error-radio::before {
+        border: 1px solid red;
+        border-radius: 50%;
+      }
+
+      &.error-checkbox::before {
+        border: 1px solid red;
+        border-radius: 2px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+
+        @include maxMediaQuery($lg) {
+          height: 16px !important;
+          width: 16px !important;
+        }
+
+        @include maxMediaQuery($md) {
+          height: 14px !important;
+          width: 14px !important;
+        }
+      }
+    }
+
+    &[type="month"]{
+    }
+
+  
+    /* For Input Type File */
+    &[type="file"] {
+      padding: 0px;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+
+      @include maxMediaQuery($md) {
+        font-size: 14px;
+      }
+
+      @include maxMediaQuery($sm) {
+        font-size: 10px;
+      }
+
+      &::file-selector-button {
+        margin-right: 15px;
+        border: none;
+        background: $second;
+        padding: 0px 10px 8px;
+        color: $light;
+        cursor: pointer;
+        transition: background 0.2s ease-in-out;
+        height: 47px;
+
+        @include maxMediaQuery($md) {
+          width: 100px;
+          padding: 8px;
+          font-size: 14px;
+        }
+
+        @include maxMediaQuery($sm) {
+          width: 80px;
+          padding: 8px;
+          height: 37px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  /* Box Image Files */
+  .imageBoxMain {
+    display: flex;
+    align-items: start;
+    margin-top: 15px;
+
+    & .boxImage {
+      display: flex;
+      align-items: center;
+      height: 100px;
+      width: 100px;
+      min-height: 100px;
+      min-width: 100px;
+      border: 3px solid $second;
+      margin-right: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      // overflow: hidden;
+      position: relative;
+
+      @include maxMediaQuery($lg) {
+        height: 70px;
+        width: 70px;
+        min-height: 70px;
+        min-width: 70px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+      }
+
+      @include maxMediaQuery($sm) {
+        height: 50px;
+        width: 50px;
+        min-height: 50px;
+        min-width: 50px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+
+      @include maxMediaQuery($smm) {
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+
+      &::before {
+        font-weight: 300;
+        font-size: 50px;
+
+        @include maxMediaQuery($md) {
+          font-size: 40px;
+        }
+
+        @include maxMediaQuery($sm) {
+          font-size: 30px;
+        }
+
+        height: 100%;
+        width: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      & input {
+        transform: scale(2);
+        margin-top: 0;
+        opacity: 0;
+        position: absolute;
+      }
+    }
+
+    & .multiImage {
+      max-width: unset;
+      overflow: unset;
+
+      & div[data-index="index"] {
+        margin-top: 0;
+
+        @include maxMediaQuery($lg) {
+          height: 70px;
+          width: 70px;
+          min-height: 70px;
+          min-width: 70px;
+          margin-right: 15px;
+          margin-bottom: 15px;
+        }
+
+        @include maxMediaQuery($sm) {
+          height: 50px;
+          width: 50px;
+          min-height: 50px;
+          min-width: 50px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+        }
+
+        @include maxMediaQuery($smm) {
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+
+        & img[data-class="showImage"] {
+          border: 3px solid $second;
+          border-radius: 10px;
+
+          @include maxMediaQuery($lg) {
+            height: 70px;
+            width: 70px;
+            min-height: 70px;
+            min-width: 70px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+          }
+
+          @include maxMediaQuery($sm) {
+            height: 50px;
+            width: 50px;
+            min-height: 50px;
+            min-width: 50px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+          }
+
+          @include maxMediaQuery($smm) {
+            margin-right: 5px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  /* For Input Type Password , Search */
+
+  & .passHideShow,
+  .searching,
+  .activeIcon {
+    position: absolute;
+    top: 65%;
+    transform: translateY(-30%);
+    right: 14px;
+    cursor: pointer;
+  }
+
+  /* Type Radio And Check Box Label */
+
+  &.radio,
+  &.checkbox {
+    display: flex;
+    align-items: center;
+
+    & label {
+      margin-bottom: 0;
+      margin-right: 10px;
+      cursor: pointer;
+      color: #000000;
+    }
+  }
+}
+
+.mk-btn {
+  background-color: $second;
+  color: $light;
+  border-color: transparent;
+  padding: 10px 0;
+}
+
+/* ============= Login CSS ============= */
+.mainLoginPage {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+  & .loginDiv {
+    & .loginPage {
+      background-color: $light;
+      box-shadow: 0 0 20px rgba(23,30,39,.431);
+      padding: 70px 35px;
+      border-radius: 30px;
+      width: 30%!important;
+
+      @include maxMediaQuery($lg){
+        width: 60%!important;
+        padding: 40px 25px;
+      }
+      @include maxMediaQuery($md){
+        width: 45%!important;
+        padding: 40px 25px;
+      }
+      @include maxMediaQuery($sm){
+        width: 90%!important;
+        padding: 30px 20px;
+      }
+      & .welComeTitle{
+        font-size:20px;
+        @include maxMediaQuery($md){
+          font-size:17px
+        }
+      }
+      & .title{
+        font-size:20px;
+        @include maxMediaQuery($md){
+          font-size:17px
+        }
+      }
+    }
+  }
+}
+
+.mainLoginPage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+  z-index: 1; /* Ensure it sits on top of the background */
+}
+
+.mainLoginPage * {
+  position: relative;
+  z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* ============= Table CSS ============= */
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr{
+  border-bottom-width: 1px;
+  border-color: $gray2;
+  padding: 12px;
+  font-size: 15px;
+  // text-align: center!important;
+  // white-space: nowrap;
+
+  @include maxMediaQuery($md) {
+    font-size: 12px;
+  }
+}
+thead{
+  color: white !important;
+}
+
+tbody {
+  & td {
+    text-align: center !important;
+    &:first-child {
+      text-align: center;
+      width: 70px;
+      // z-index: 99995;
+    }
+  }
+}
+
+thead {
+  & th {
+    &:first-child {
+      & > div {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/* ======== Sub Table CSS ======== */
+.subTable {
+  & tbody,
+  & td,
+  & tfoot,
+  & th,
+  & thead,
+  & tr {
+    padding: 5px;
+    border-color: transparent;
+  }
+
+  & th,
+  & thead {
+    background-color: $transparent !important;
+    border-top-width: 1px;
+    border-color: $gray;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.mainTable {
+  max-height: calc(100vh - 117px - 250px);
+  min-height: calc(100vh - 117px - 250px);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  // z-index: -2;
+  // min-height: calc(100vh - 117px - 250px);
+
+  @media screen and (max-height: 650px) {
+    max-height: calc(100vh - 117px - 0px);
+  }
+
+  overflow: auto;
+
+  & .primeTable {
+    width: 100%;
+    background-color: $light;
+    & tbody{
+      border: 1px solid rgba(163, 162, 162, 0.329);
+      border-top: 0;
+      font-weight: 500;
+    }
+    
+    & th,
+    & thead {
+      background-color: $theme;
+      position: sticky;
+      top: 0;
+      text-align: center !important;
+      z-index: 2;
+      font-weight: 600 !important;
+      // z-index: 1;
+      // text-align: center!important;
+      // tr{
+      //   th:first-child{
+      //     border-radius: 10px 0 0 10px;
+      //   }
+      //   th:last-child{
+      //     border-radius: 0 10px 10px 0;
+      //   }
+      // }
+    }
+    & .userProfile{
+      // margin: auto!important;
+      & img{
+        border-radius: 10px;
+        // box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        border:1px solid $gray2
+      }
+    }
+  }
+}
+
+/* ============= Title CSS ============= */
+.mainTitle {
+  margin-bottom: 20px;
+
+  & .titlePath {
+    font-size: 14px;
+  }
+
+  @include maxMediaQuery($md) {
+    margin-bottom: 10px;
+    font-size: 16px;
+
+    & .titlePath {
+      font-size: 10px;
+    }
+  }
+}
+
+/* ============= Pagination CSS ============= */
+
+.pagination {
+  background-color: #FDFFFC;
+  padding: 20px;
+  // color: #949494;
+  // cursor: pointer;
+
+  @include maxMediaQuery($md) {
+    padding: 10px;
+    font-size: 14px;
+  }
+  & .client-pagination{
+    @include maxMediaQuery($md) {
+    display: block!important;
+    }
+  }
+
+  & .tableRang {
+    cursor: pointer;
+    & .inputData {
+      @include maxMediaQuery($md) {
+        font-size: 12px;
+      }
+
+      & .selectMain {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  & .count {
+    // color: $dark;
+    margin-left: 15px;
+
+    @include maxMediaQuery($md) {
+      margin-left: 10px;
+      font-size: 12px;
+    }
+  }
+
+  & .tableAccess {
+    cursor: pointer;
+  
+    & .mainPaginatinBtn {
+      @include maxMediaQuery($md) {
+      justify-content: center;
+      margin-top:10px!important
+        }
+      & .paginationBtn {
+        height: 40px;
+        width: 40px;
+        // background-color: $theme;
+        // color: $light;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin: 0 5px;
+        border: 1px solid $theme;
+
+        @include maxMediaQuery($md) {
+          margin: 0 3px;
+          height: 25px;
+          width: 25px;
+          font-size: 12px;
+        }
+
+        &.pageBtnDisable {
+          // background-color: $themeLight;
+          border: 1px solid $theme;
+        }
+      }
+    }
+  }
+  & .paginationNumber {
+    // border-radius: 0 !important;
+    background-color: #fff !important;
+    color: $theme !important;
+    &.active {
+      background-color: $theme !important;
+      color: $light !important;
+    }
+  }
+}
+
+/* ============= Dialog CSS ============= */
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000006b;
+  z-index: 999;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+
+  & .mainDiaogBox {
+    background-color: #fff;
+    padding: 20px;
+    max-height: 98vh;
+    overflow: auto;
+    border-radius: 32px!important;
+
+    & .formBody {
+      max-height: 600px;
+      overflow: auto;
+
+      & > div {
+        margin-bottom: 10px;
+      }
+
+      & .errorMessage{
+        color: red;
+      }
+    }
+
+    & .closeButton {
+      font-size: 30px;
+      background-color: $second;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      color: #fff;
+      margin-left: auto;
+      cursor: pointer;
+    }
+
+    @include maxMediaQuery($md) {
+      & h2 {
+        font-size: 20px;
+      }
+
+      & .closeButton {
+        font-size: 20px;
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+}
+
+.mainMultiSelector {
+  // background-color: #36212108;
+  & > .row {
+    position: relative;
+    border-radius: 10px;
+    border: dashed $second 2px;
+    padding: 20px 30px !important;
+    margin: 20px 0 !important;
+
+    @include maxMediaQuery($sm) {
+      padding: 10px 0 !important;
+    }
+  }
+
+  & .multiRemover {
+    background-color: $second;
+    color: $light;
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+/* ============= Page Dialogue CSS ============= */
+
+.formFooter {
+  //   position: absolute;
+  //   bottom: 20px;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   background-color: #fff;
+  //   padding: 20px;
+  //   background: rgba(255, 255, 255, 0.4);
+  //   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  //   backdrop-filter: blur(4px);
+  //   -webkit-backdrop-filter: blur(4px);
+  //   border-radius: 10px;
+  //   border: 1px solid rgba(255, 255, 255, 0.18);
+  //   // width: 100%;
+  padding: 10px 0 !important;
+}
+
+/* ============= Button CSS ============= */
+
+button.themeButton {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+
+  @include maxMediaQuery($sm) {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}
+
+/* ============= Swal Warning CSS ============= */
+
+.swal2-container {
+  background: rgba(0, 0, 0, 0.075) !important;
+
+  & .swal2-popup {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    & .swal2-icon {
+      border: none !important;
+
+      & .swal2-icon-content {
+        font-size: 5.75rem;
+        color: $second;
+      }
+    }
+  }
+}
+
+/* ============= Attributes CSS ============= */
+
+.attrDetails {
+  display: flex;
+  flex-wrap: wrap;
+
+  & div {
+    background-color: $lightGray;
+    color: $second;
+    font-weight: 600;
+    padding: 6px 15px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.colorBall {
+  height: 25px;
+  width: 25px;
+
+  @include maxMediaQuery($md) {
+    height: 15px;
+    width: 15px;
+  }
+
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+#attrForm {
+  input[type="color"] {
+    padding: 0;
+    outline: none;
+    border-width: 0;
+    border-color: transparent;
+
+    &::-webkit-color-swatch {
+      border: none;
+    }
+  }
+}
+
+
+.showDetails {
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 8px;
+
+  & li {
+    display: flex;
+    align-items: center;
+    background-color: $lightGray;
+    color: $second;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin: 10px;
+
+    @include maxMediaQuery($md) {
+      font-size: 14px;
+    }
+
+    & .cencalDetails {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.notiCount {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* ============= Toggle Button CSS ============= */
+// .customCheckbox {
+//   display: none;
+
+//   &:checked ~ .slider::before {
+//     -webkit-transform: translateX(25px);
+//     -ms-transform: translateX(25px);
+//     transform: translateX(25px);
+//     -webkit-box-shadow: 0 0 10px 3px rgb(0, 0, 0, 0.25);
+//     box-shadow: 0 0 10px 3px rgb(0, 0, 0, 0.25);
+//   }
+
+//   &:checked ~ .slider {
+//     background-color: $second;
+//   }
+
+//   // &:active~.slider::before {
+//   //   -webkit-transform: translate(0);
+//   //   -ms-transform: translate(0);
+//   //   transform: translate(0);
+//   // }
+// }
+
+
+// .slider {
+//   width: 50px;
+//   height: 25px;
+//   background-color: lightgray;
+//   border-radius: 20px;
+//   overflow: hidden;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+//   border: 4px solid transparent;
+//   -webkit-transition:0.3s!important;
+//   transition:0.3s!important;
+//   -webkit-box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.25) inset;
+//   box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.25) inset;
+//   cursor: pointer;
+
+//   &::before {
+//     content: "";
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #fff;
+//     -webkit-transform: translateX(-25px);
+//     -ms-transform: translateX(-25px);
+//     transform: translateX(-25px);
+//     border-radius: 20px;
+//     -webkit-transition:0.3s!important;
+//     transition:0.3s!important;
+//     -webkit-box-shadow: 0 0 10px 3px rgb(0, 0, 0, 0.25);
+//     box-shadow: 0 0 10px 3px rgb(0, 0, 0, 0.25);
+//   }
+// }
+
+.searchIcon {
+  border-radius: 0 20px 20px 0 !important;
+  border: 1px solid $theme;
+}
+
+.inputData {
+  & select {
+    width: 100%;
+    height: 42px;
+    background-color: #ffffff;
+    margin-top: 4px;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-left: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    font-size: 16px;
+    appearance: none;
+    background-image: url('../../images/free-arrow-down-icon-3101-thumb.png'); /* Replace 'arrow.png' with your arrow image */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  & select::after {
+    content: "";
+    position: absolute;
+    right: 20px;
+  }
+}
+.Toastify__toast-container {
+  & p{
+    font-size:14px!important
+  }
+}
+
+input {
+  border: 1px solid #cfcfcf
+}
+
+
+// Toggle Switch
+
+ .switch {
+  --circle-dim: 1.4em;
+  font-size: 14px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  
+}
+
+/* Hide default HTML checkbox */
+ .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+ .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f5aeae;
+  transition: 1.5s;
+  border-radius: 30px;
+}
+
+ .slider-card {
+  position: absolute;
+  content: "";
+  height: var(--circle-dim);
+  width: var(--circle-dim);
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  transition: .4s;
+  pointer-events: none;
+}
+
+ .slider-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  border-radius: 50%;
+  transition: .4s transform;
+}
+
+ .slider-card-front {
+  background-color: #DC3535;
+}
+
+ .slider-card-back {
+  background-color: #379237;
+  transform: rotateY(180deg);
+}
+
+ input:checked ~ .slider-card .slider-card-back {
+  transform: rotateY(0);
+}
+
+ input:checked ~ .slider-card .slider-card-front {
+  transform: rotateY(-180deg);
+}
+
+ input:checked ~ .slider-card {
+  transform: translateX(1.5em);
+}
+
+ input:checked ~ .slider {
+  background-color: #9ed99c;
+}
+
+.not-allowed {
+  pointer-events: auto! important;
+  cursor: auto! important;
+}
+
+ ::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+} 
+
+ .mainTable {
+  max-height: calc(100vh - 117px - 250px);
+  min-height: calc(100vh - 117px - 250px);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  overflow: auto;
+}
+
+.mainAdminGrid .mainSetting .settingBox .settingBoxOuter {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fcfdff;
+  border: 1px solid #cfcfcf;
+} 

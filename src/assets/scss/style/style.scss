@@ -1,0 +1,933 @@
+@import "../variables/variables";
+
+body {
+  background-color: white !important;
+}
+
+.mainAdminGrid {
+  /* ============= Sidebar CSS ============= */
+  background-color: #FDFFFC;
+  box-shadow: 0 0 1px #f1f3f0;
+
+  & .mainSidebar {
+    color: $darkGray;
+    height: 100vh;
+    padding: 25px;
+    font-size: 15px;
+    transition: 0.4s;
+
+    @include maxMediaQuery($lg) {
+      position: relative;
+      z-index:99;
+      padding: 0;
+      width: 250px;
+      box-shadow: 11px 2px 12px rgba(15, 34, 58, 0.121);
+    }
+
+    /* Side Menu Toggle JS CSS */
+    & .sideBar {
+      width: 100%;
+      background-color: $light;
+      height: 100%;
+      box-shadow: 0 2px 4px #0f223a1f;
+      overflow-x: auto;
+
+      & .sideBarLogo {
+        padding: 15px;
+
+        & .logo {
+          display: block;
+          & h3 {
+            margin-top: auto;
+            margin-bottom: auto;
+          }
+          & img {
+            height: 40px;
+            width: 40px;
+          }
+        }
+
+        & .closeIcon {
+          display: none;
+        }
+
+        @include maxMediaQuery($lg) {
+          display: flex;
+          justify-content: space-between;
+
+          & .closeIcon {
+            display: block;
+            font-size: 18px;
+          }
+
+          & .logo {
+            margin: unset;
+          }
+
+          & .blackBox {
+            height: 100vh;
+            width: 100%;
+            background-color: #000000b0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: 0.2s;
+          }
+        }
+      }
+
+      & .navigation {
+        & .mainMenu {
+          & .navTitle {
+            text-align: start;
+            padding-left: 10px;
+          }
+          & .activeMenu {
+            text-align: start;
+          }
+          & > li {
+            & > .activeMenu {
+              color: $theme !important;
+              background-color: #f5f5f5;
+              border-left: 3px solid $theme;
+              border-radius: 0 0 0 0;
+            }
+            & > .activeMenu > div  > svg > path{
+              fill: $theme !important;
+            }
+            & > .activeMenu > div  > svg > g > path{
+              fill: $theme !important;
+            }
+
+            & > a {
+              & div {
+                & span {
+                  display: inline;
+                  font-size: 16px !important;
+                  font-weight: 600 !important;
+                }
+              }
+
+              & > i {
+                display: block;
+              }
+
+              &:hover  {
+                color: white !important;
+                background-color: #ADDE34;
+                border-left: 3px solid $theme;
+                border-radius: 0 0 0 0;
+                
+                & > div  > svg > path {
+                  fill: $white !important;
+                }
+                & > div  > svg > g > path {
+                  fill: $white !important;
+                }
+
+              }
+            }
+          }
+
+          & li {
+            margin: 5px 0;
+            border-radius: 10px;
+
+            
+
+            & a  {
+              color: $theme;
+              padding: 10px 25px;
+              transition: 0s;
+
+              &:hover {
+                color: $themeparot;
+              }
+            
+
+              & i {
+                font-size: 18px;
+                margin-right: 10px;
+              }
+            }
+
+            & .subMenu {
+              padding-left: 28px;
+              padding-top: 10px;
+
+              & .subhead {
+                text-align: start;
+                display: none;
+                margin-bottom: 20px;
+                cursor: pointer;
+                font-size: 16px;
+                color: #092C1C;
+              }
+
+              & li {
+                & > .activeMenu {
+                  color: #092C1C;
+                  border-radius: 0 0 0 0;
+                  font-weight: bold;
+
+                }
+                & a {
+                  position: relative;
+                  &::before {
+                    content: "";
+                    width: 6px;
+                    height: 2px;
+                    background-color: $darkGray;
+                    position: absolute;
+                    left: 2px;
+                    top: 50%;
+                    transition: 0.4s;
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.subtext:hover {
+    color: $themeparot;
+  }
+
+  /*Small Size*/
+  &.webAdminGrid {
+    & .mainSidebar {
+      padding: 25px 25px 0 25px;
+      height: 100%;
+
+      @include maxMediaQuery($lg) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60px;
+        box-shadow: unset;
+        z-index: 4;
+        padding: 0;
+      }
+
+      @include maxMediaQuery($md) {
+        width: 50px;
+      }
+      & .sideBar {
+        height: 100%;
+        overflow: unset;
+
+        @include maxMediaQuery($lg) {
+          overflow: auto;
+        }
+      }
+
+      & .sideBarLogo {
+        @include maxMediaQuery($md) {
+          padding: 12px;
+        }
+
+        & .logo h3 {
+          display: none;
+        }
+        & .logo img {
+          // display: none;
+          transition: 0.5s;
+          height: 35px;
+          width: 35px;
+        }
+
+        @include maxMediaQuery($lg) {
+          & .closeIcon {
+            display: none;
+          }
+
+          & .blackBox {
+            left: -100%;
+          }
+        }
+      }
+
+      & .navigation {
+        & .mainMenu {
+          & .navTitle {
+            display: none;
+          }
+          & > li {
+            position: relative;
+
+            & > a {
+              padding-left: 18px;
+
+              @include maxMediaQuery($md) {
+                padding-left: 15px;
+              }
+
+              & div {
+                & span {
+                  display: none;
+                }
+
+                & i {
+                  font-size: 24px;
+
+                  @include maxMediaQuery($md) {
+                    font-size: 20px;
+                  }
+                }
+              }
+
+              & > i {
+                font-size: 24px;
+                display: none;
+              }
+            }
+
+            &:hover .subMenu {
+              display: block !important;
+            }
+
+            & .subMenu {
+              position: absolute;
+              top: 0;
+              left: 100%;
+              padding-left: 0;
+              padding: 18px 10px 10px;
+              background-color: $light;
+              white-space: nowrap;
+              min-width: 200px;
+              box-shadow: 0 2px 4px #0f223a1f;
+              z-index: 1;
+
+              @include maxMediaQuery($md) {
+                min-width: 160px;
+              }
+
+              & .subhead {
+                font-weight: 600;
+                display: block;
+
+                @include maxMediaQuery($md) {
+                  margin-bottom: 10px;
+                  font-size: 14px;
+                }
+              }
+
+              & li {
+                & a {
+                  position: relative;
+                  padding-left: 20px;
+
+                  @include maxMediaQuery($md) {
+                    padding: 5px 15px;
+                    font-size: 12px;
+                  }
+
+                  &::before {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+         
+        }
+      }
+    }
+  }
+
+  & .mainAdmin {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 30px 0 15px;
+
+    @include maxMediaQuery($md) {
+      padding: 0 10px 0 3px;
+    }
+
+    /* ============= Navbar CSS ============= */
+
+    & .mainNavbar {
+      position: sticky;
+      top: 0;
+      margin: 25px 0;
+      transition-delay: 1s;
+      z-index: 3;
+
+      @include maxMediaQuery($md) {
+        margin: 10px 0;
+      }
+
+      & .navBar {
+        & .innerNavbar {
+          background-color: $themeparot;
+          height: 100%;
+          padding: 13px 30px;
+          box-shadow: 0 0 5px $themeLight;
+          border-radius: 15px;
+
+          & .leftNav {
+            & i {
+              color: $light;
+            }
+          }
+          & .rightNav {
+            & .adminProfile {
+              & .adminPic {
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                  height: 40px;
+                  width: 40px;
+                  border-radius: 50%;
+                  border: 1px solid rgba(255, 255, 255, 0.616);
+                  padding: 2px;
+                }
+              }
+
+              & .adminDetails {
+                & h6 {
+                  font-size: 16px;
+                  color: $light;
+                }
+
+                & p {
+                  font-size: 14px;
+                  color: $light;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include maxMediaQuery($md) {
+        & .navBar {
+          // padding: 12px 0;
+
+          & .innerNavbar {
+            padding: 8px 10px;
+
+            & .rightNav {
+              & .adminProfile {
+                & .adminPic {
+                  height: 30px;
+                  width: 30px;
+                }
+
+                & .adminDetails {
+                  & h6 {
+                    font-size: 12px;
+                  }
+
+                  & p {
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* ============= Admin CSS ============= */
+    .adminStart {
+      max-height: calc(100vh - 117px);
+    }
+  }
+
+  /* ============= Dashboard CSS ============= */
+  .mainDashboard {
+    & .dashBoardHead {
+      @include maxMediaQuery($md) {
+        & h3 {
+          font-size: 18px;
+        }
+
+        & p {
+          font-size: 14px;
+        }
+      }
+    }
+
+    & .mainDashbox {
+      margin-top: 15px;
+
+      & .dashBox {
+        // padding: 10px 15px;
+        background-color: $light;
+        border-radius: 20px;
+        border: 1px solid #D6D6D6;
+        height: 110px;
+
+        & .dashIconBox {
+          background-color: $theme;
+          border-radius: 20px 0 0 20px;
+          height: 100%;
+
+          & .dashIcon {
+            & i {
+              font-size: 40px !important;
+              color: white !important;
+              text-align: center;
+              align-self: center;
+            }
+          }
+        }
+
+        & .boxContent {
+          & .boxTitle {
+            & p {
+              font-size: 16px;
+              font-weight: 600;
+              color: $darkGray;
+              margin-top: 15px;
+            }
+             @include maxMediaQuery($lg) {
+              & p {
+                font-size: 14px;
+              }
+            }
+          
+          }
+          & .boxAmount {
+            & p {
+              font-size: 30px;
+              color: $theme;
+              margin-top: 0px;
+              font-weight: 700;
+            }
+            @include maxMediaQuery($lg) {
+              & p {
+                font-size: 25px;
+              }
+            }
+            @include maxMediaQuery($xl) {
+              & p {
+                font-size: 26px;
+              }
+            }
+          }
+        }
+
+        & .boxBody {
+          margin-top: 15px;
+
+          @include maxMediaQuery($md) {
+            margin-top: 7px;
+
+            & h2 {
+              font-size: 20px;
+            }
+          }
+        }
+
+        & .boxFooter {
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+
+          & .boxLink {
+            & a {
+              border-bottom: solid 1px;
+              font-size: 14px;
+
+              @include maxMediaQuery($md) {
+                font-size: 12px;
+              }
+            }
+          }
+
+          & .boxIcon {
+            width: 55px;
+            height: 55px;
+
+            @include maxMediaQuery($md) {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+
+    & #chart {
+      max-height: 500px !important;
+      overflow: hidden;
+      background-color: $light;
+
+      & .apexcharts-toolbar {
+        z-index: 3 !important;
+      }
+      & .apexcharts-title-text {
+        font-size: 18px !important;
+        @include maxMediaQuery($md) {
+          font-size: 15px !important;
+
+          @include maxMediaQuery($md) {
+            font-size: 12px !important;
+          }
+        }
+      }
+
+      & .apexcharts-toolbar {
+        & div[title="Selection Zoom"],
+        & div[title="Panning"],
+        & .apexcharts-zoomin-icon,
+        .apexcharts-zoomout-icon,
+        .apexcharts-reset-icon {
+          display: none;
+        }
+        .apexcharts-menu-icon {
+          @include maxMediaQuery($md) {
+            display: none;
+          }
+        }
+
+        & > div {
+          margin: 0 5px;
+
+          & svg {
+            fill: $second;
+            height: 30px;
+            width: 30px;
+
+            @include maxMediaQuery($md) {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mainAdminProfile {
+    & .adminProfileBox {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 15px;
+      padding: 30px 20px;
+      background-color: #0f6f8515;
+      & .adminImg {
+        & img {
+          height: 250px;
+          width: 250px;
+          border-radius: 50%;
+        }
+      }
+      & .adminData {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .mainSetting {
+    & .settingBox {
+      & .settingBoxOuter {
+        // box-shadow: 0 6px 6px -1px rgba(0, 0, 0, 0.2),
+        // box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.034);
+
+        // 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border: 1px solid #cfcfcf;
+
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #fcfdff;
+        & .settingBoxHeader {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* ============= Product CSS ============= */
+.productShowColorDetails {
+  padding: 30px 20px;
+  margin: 20px 0;
+  & ~ .mainTable {
+    max-height: 444px !important;
+  }
+  background-color: $light;
+  box-shadow: 0px 0px 10px #0000002c;
+  & .productDefault {
+    font-weight: bold;
+    font-size: 20px;
+    @include maxMediaQuery($md) {
+      font-size: 12px;
+    }
+    & span:first-child {
+      color: $second;
+    }
+    & span:last-child {
+      text-transform: capitalize;
+    }
+  }
+}
+
+// .allProductColor {
+//   display: flex;
+//   & .userProfile {
+//     margin-right: 10px;
+//   }
+// }
+
+.colorRound {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.inputfile:focus + label {
+  outline: 1px dotted #000 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+[role="button"],
+a,
+area,
+button,
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+.camera {
+  padding: 10px 15px;
+}
+
+//  Expert Profile Css
+
+.chip {
+  background-color: $theme !important;
+  cursor: pointer !important;
+}
+.optionListContainer .option {
+  background: $theme;
+  color: white;
+  font-size: 16px;
+}
+
+.optionListContainer .option:hover {
+  background: rgb(194, 194, 194);
+  color: black;
+}
+
+.interested-topics .searchBox {
+  cursor: pointer !important;
+}
+
+.expertDataTitle {
+  width: 100px !important;
+  font-weight: bold;
+}
+.expertBox {
+  box-shadow: 0 0 20px rgba(23, 30, 39, 0.231);
+  border: 1px solid rgba(192, 192, 192, 0.37);
+}
+.expertDataList {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.rc-time-picker {
+  width: 100% !important;
+  .rc-time-picker-input {
+    &:focus {
+      outline-color: $second;
+      outline-width: 1px;
+    }
+
+    &::placeholder {
+      color: $gray;
+      font-size: 16px;
+    }
+
+    // Tablate Device
+    @include maxMediaQuery($lg) {
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+
+    // mobile Device
+    @include maxMediaQuery($sm) {
+      padding: 0 15px;
+      height: 38px;
+      margin-top: 2px;
+      font-size: 12px;
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+}
+.mainDiaogBox {
+  label {
+    user-select: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 15px;
+    color: #7e7e7e;
+  }
+}
+.rc-time-picker-clear {
+  display: none !important;
+}
+.tsBox {
+  padding-top: 10px !important;
+  padding-bottom: 15px !important;
+  border: 1px solid #EBEBEB;
+  border-radius: 10px;
+}
+
+.extraPadding {
+  padding-left: 135px;
+  @include maxMediaQuery($sm) {
+    padding-left: 20px;
+  }
+}
+
+.extraMargin {
+  margin-left: 120px;
+  @include maxMediaQuery($sm) {
+    margin-left: 20px;
+  }
+}
+
+.userProfile {
+  .boxShadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.focusNone {
+  input:focus {
+    outline: none !important;
+  }
+  & textarea:focus {
+    outline: none !important;
+  }
+}
+.inputNoFocus {
+  outline: none !important;
+}
+.upIndex {
+  z-index: 99999 !important;
+}
+
+.statusShow {
+  h6 {
+    padding: 4px !important;
+    border-radius: 0.375rem !important;
+    margin-right: 1rem !important;
+    font-size: 1rem;
+  }
+  .cancelStatus {
+    background-color: rgba(251, 175, 190, .5);
+    color: #b3092b;
+  }
+  .pendingStatus {
+    background-color: rgba(203, 210, 246, 0.5);
+    color: #2236a8;
+  }
+  .completedStatus {
+    background-color: rgba(147, 231, 195, 0.5);
+    color: #1a8a59;
+}
+}
+
+.activeBtn {
+  background-color: #ADDE34 !important;
+  color: #fff;
+}
+
+.disabledBtn {
+  background-color: #ffffff;
+  color: #1f1e1e;
+}
+
+.activeBtn,
+.disabledBtn {
+  padding: 10px 16px;
+  border-radius: 40px;
+  font-size: 17px;
+}
+
+.react-datepicker-popper {
+  z-index: 99 !important;
+}
+
+.apexcharts-legend-marker {
+  height: 25px !important;
+  width: 25px !important;
+  border-radius: 5px !important;
+  margin-right: 10px !important;
+}
+
+// For legend text
+.apexcharts-legend-text {
+font-size: 18px !important;
+font-weight: bold !important;
+margin-right: 8px;
+}
+
+.optionListContainer {
+  width: 30% !important;
+  @include maxMediaQuery($sm) {
+    width: 100% !important;
+  }
+  @include maxMediaQuery($md) {
+    width: 50% !important;
+  }
+}
+
+.icon_cancel,#search_input {
+  display: none !important;
+  cursor: none !important;
+}
+
+.style-module_fillIcons__6---A > svg , .style-module_emptyIcons__Bg-FZ > svg{
+  height: 25px !important;
+  width: 25px !important;
+}
+
+.label {
+    font-size: 14px;
+    color: #7e7e7e;
+    font-weight: 500;
+}
+
+.setting{
+    max-width: 637px;
+    @include maxMediaQuery($sm) {
+      padding: 10px;
+
+    }
+    border: 1px solid #1c2b20;
+    padding: 4px;
+    border-radius: 40px,
+}
+
+
+
+.expert_width{
+  max-width: 343px;
+  border: 1px solid #1c2b20;
+  padding : 4px;
+  border-radius: 40px;
+}
+

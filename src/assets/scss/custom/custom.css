@@ -1,0 +1,1417 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fcfffc;
+}
+
+:invalid {
+  outline: none;
+  color: red;
+}
+
+.font-prime {
+  font-family: "Poppins", sans-serif;
+}
+
+.font-second {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.rotate90 {
+  transform: rotate(90deg);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+.midBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.betBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h1,
+h1 {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.h2,
+h2 {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.h3,
+h3 {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.h4,
+h4 {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.h5,
+h5 {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.h6,
+h6 {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(28, 43, 32, 0.514);
+  border-radius: 10px;
+}
+
+/* Admin Penal Setup */
+.mainAdminGrid {
+  transition: 0.4s;
+  display: grid;
+  grid-template-areas: "sideBar admin" "sideBar admin";
+  grid-template-columns: 300px auto;
+}
+.mainAdminGrid.webAdminGrid {
+  grid-template-columns: 110px auto;
+}
+@media screen and (max-width: 992px) {
+  .mainAdminGrid {
+    grid-template-columns: 0px auto;
+  }
+  .mainAdminGrid.webAdminGrid {
+    grid-template-columns: 70px auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainAdminGrid.webAdminGrid {
+    grid-template-columns: 60px auto;
+  }
+}
+.mainAdminGrid .mainSidebar {
+  grid-area: sideBar;
+}
+.mainAdminGrid .mainAdmin {
+  grid-area: admin;
+}
+
+/* Email Submits */
+.emailSubmit {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+}
+.emailSubmit .webEmail {
+  width: 100%;
+  max-width: 380px;
+  height: 55px;
+  border: transparent;
+  border-radius: 5px;
+  padding: 0 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.emailSubmit .webEmail:focus {
+  outline: none;
+}
+.emailSubmit .mk-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border: transparent;
+  padding: 10px;
+  background-color: #f1f1f1;
+  width: 80px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dark-btn {
+  background-color: #000000;
+  display: inline-block;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.mk-active {
+  background-color: #000000;
+  border-radius: 50%;
+  height: 33px;
+  width: 33px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainLoader {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2392156863);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainLoader .lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.mainLoader .lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.mainLoader .lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+.inputData {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 20px;
+  position: relative !important;
+  text-align: start !important;
+  /*Tablate Device*/
+  /* Image Input */
+  /* Normal Select */
+  /* Input Select */
+  /*Text Area*/
+  /* Box Image Files */
+  /* For Input Type Password , Search */
+  /* Type Radio And Check Box Label */
+}
+.inputData .errorMessage {
+  margin-top: 5px;
+  font-size: 16px;
+  color: red;
+}
+@media screen and (max-width: 768px) {
+  .inputData .errorMessage {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData .errorMessage {
+    font-size: 12px;
+  }
+}
+.inputData input:invalid ~ .errorMessage {
+  color: red;
+  display: block;
+}
+.inputData label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+  color: #7e7e7e;
+}
+@media screen and (max-width: 576px) {
+  .inputData label {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .inputData {
+    font-size: 16px;
+  }
+}
+.inputData .multiImage {
+  max-height: 200px;
+  overflow: auto;
+}
+.inputData .multiImage > div[data-index=index] {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  margin-left: 0;
+  position: relative;
+}
+.inputData .multiImage > div[data-index=index] > div[data-remove=remove] {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(28, 43, 32, 0.514);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.inputData .multiImage > div[data-index=index] img[data-class=showImage] {
+  margin-top: 0;
+}
+.inputData img[data-class=showImage] {
+  width: 100px !important;
+  height: 100px !important;
+  margin: 20px;
+  margin-left: 0;
+}
+.inputData .selectMain {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  display: inline;
+  width: 100%;
+}
+.inputData .selectMain .selectBox {
+  font-size: 18px;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 1px solid #cecece;
+  text-align: start;
+  height: auto;
+}
+.inputData .selectMain .selectBox .showSelectValue p {
+  display: block;
+}
+.inputData .selectMain .selectBox .showSelectValue input {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .inputData .selectMain .selectBox {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+.inputData .selectMain .selectBox::after {
+  display: none;
+}
+.inputData .selectMain .selectBox:focus {
+  outline: none;
+}
+.inputData .selectMain ul {
+  position: absolute;
+  top: calc(100% - 25px);
+  margin: 0px;
+  background-color: #ffffff;
+  box-shadow: 0 0 12px rgba(15, 34, 58, 0.121);
+}
+.inputData .selectMain ul.topSide {
+  bottom: 100%;
+  top: auto;
+}
+.inputData .selectMain ul.bottomSide {
+  top: 70%;
+  bottom: auto;
+}
+.inputData .selectMain ul li {
+  font-size: 16px;
+  padding: 3px 18px;
+  cursor: pointer;
+}
+.inputData .selectMain ul li:first-child {
+  display: none;
+}
+.inputData .selectMain ul li:hover {
+  background-color: rgba(28, 43, 32, 0.514);
+  color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+  .inputData .selectMain ul li {
+    font-size: 14px;
+  }
+}
+.inputData .multiSelectionDisplay {
+  background-color: #d8d8d8;
+  padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  margin: 5px 5px;
+}
+.inputData.inputSelect .selectMain {
+  width: 100%;
+  margin-top: 10px;
+  display: block;
+}
+@media screen and (max-width: 576px) {
+  .inputData.inputSelect .selectMain {
+    margin-top: 3px;
+  }
+}
+.inputData.inputSelect .selectMain .selectBox {
+  border: none;
+  background-color: #f3f3f3;
+  padding: 7px 10px 7px 20px;
+}
+.inputData.inputSelect .selectMain .selectBox input:focus {
+  outline: none;
+}
+.inputData.inputSelect .selectMain .selectBox .showSelectValue input {
+  display: block;
+}
+@media screen and (max-width: 992px) {
+  .inputData.inputSelect .selectMain .selectBox {
+    font-weight: 400;
+    padding: 10px 12px 10px 20px;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData.inputSelect .selectMain .selectBox {
+    padding: 10px 10px 10px 20px;
+    font-size: 12px;
+  }
+}
+.inputData.inputSelect .selectMain ul {
+  width: 100%;
+  z-index: 10;
+  max-height: 220px;
+  overflow: auto;
+}
+@media screen and (max-width: 992px) {
+  .inputData.inputSelect .selectMain ul {
+    max-height: 135px;
+  }
+}
+.inputData.inputSelect .selectMain ul li {
+  font-size: 18px;
+  padding: 5px 18px;
+}
+.inputData.inputSelect .selectMain ul li:first-child {
+  display: block;
+}
+@media screen and (max-width: 992px) {
+  .inputData.inputSelect .selectMain ul li {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData.inputSelect .selectMain ul li {
+    font-size: 12px;
+  }
+}
+.inputData textarea {
+  width: 100%;
+  background-color: #FBFBFB;
+  border: 1px solid #cfcfcf !important;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.inputData textarea:focus {
+  outline-color: rgba(28, 43, 32, 0.514);
+  outline-width: 1px;
+}
+.inputData textarea::-moz-placeholder {
+  color: #b1b1b1;
+  font-size: 20px;
+}
+.inputData textarea::placeholder {
+  color: #b1b1b1;
+  font-size: 20px;
+}
+@media screen and (max-width: 992px) {
+  .inputData textarea::-moz-placeholder {
+    font-size: 16px;
+  }
+  .inputData textarea::placeholder {
+    font-size: 16px;
+  }
+}
+.inputData input {
+  width: 100%;
+  height: 40px;
+  background-color: #fafafa;
+  padding: 0 20px;
+  margin-top: 5px;
+  font-size: 15px;
+  border-radius: 8px;
+  color: #000000 !important;
+  font-weight: 500;
+  /* For Input Type Search */
+  /* For Input Type Number */
+  /* Type Radio And Check Box */
+  /* For Input Type File */
+}
+.inputData input:focus {
+  outline-color: rgba(28, 43, 32, 0.514);
+  outline-width: 1px;
+}
+.inputData input::-moz-placeholder {
+  color: #b1b1b1;
+  font-size: 16px;
+}
+.inputData input::placeholder {
+  color: #b1b1b1;
+  font-size: 16px;
+}
+@media screen and (max-width: 992px) {
+  .inputData input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .inputData input::placeholder {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData input {
+    padding: 0 15px;
+    height: 38px;
+    margin-top: 2px;
+    font-size: 12px;
+  }
+  .inputData input::-moz-placeholder {
+    font-size: 12px;
+  }
+  .inputData input::placeholder {
+    font-size: 12px;
+  }
+}
+.inputData input[type=search]::-webkit-search-results-decoration, .inputData input[type=search]::-webkit-search-decoration, .inputData input[type=search]::-webkit-search-cancel-button, .inputData input[type=search]::-webkit-search-results-button {
+  font-size: 16px;
+}
+.inputData input[type=search] {
+  border: 1px solid #092C1C;
+  border-radius: 20px 0 0 20px !important;
+}
+@media screen and (max-width: 576px) {
+  .inputData input[type=search] {
+    height: 30px;
+    font-size: 12px;
+  }
+  .inputData input[type=search]::-moz-placeholder {
+    font-size: 12px;
+  }
+  .inputData input[type=search]::placeholder {
+    font-size: 12px;
+  }
+}
+.inputData input[type=search]:focus {
+  outline: none;
+}
+.inputData input::-webkit-outer-spin-button, .inputData input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inputData input[type=radio], .inputData input[type=checkbox] {
+  height: 18px !important;
+  width: 18px !important;
+  accent-color: rgba(28, 43, 32, 0.514);
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  .inputData input[type=radio], .inputData input[type=checkbox] {
+    height: 16px !important;
+    width: 16px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .inputData input[type=radio], .inputData input[type=checkbox] {
+    height: 14px !important;
+    width: 14px !important;
+  }
+}
+.inputData input[type=radio].error-radio::before, .inputData input[type=checkbox].error-radio::before {
+  border: 1px solid red;
+  border-radius: 50%;
+}
+.inputData input[type=radio].error-checkbox::before, .inputData input[type=checkbox].error-checkbox::before {
+  border: 1px solid red;
+  border-radius: 2px;
+}
+.inputData input[type=radio]::before, .inputData input[type=checkbox]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+}
+@media screen and (max-width: 992px) {
+  .inputData input[type=radio]::before, .inputData input[type=checkbox]::before {
+    height: 16px !important;
+    width: 16px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .inputData input[type=radio]::before, .inputData input[type=checkbox]::before {
+    height: 14px !important;
+    width: 14px !important;
+  }
+}
+.inputData input[type=file] {
+  padding: 0px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 768px) {
+  .inputData input[type=file] {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData input[type=file] {
+    font-size: 10px;
+  }
+}
+.inputData input[type=file]::file-selector-button {
+  margin-right: 15px;
+  border: none;
+  background: rgba(28, 43, 32, 0.514);
+  padding: 0px 10px 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  height: 47px;
+}
+@media screen and (max-width: 768px) {
+  .inputData input[type=file]::file-selector-button {
+    width: 100px;
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData input[type=file]::file-selector-button {
+    width: 80px;
+    padding: 8px;
+    height: 37px;
+    font-size: 12px;
+  }
+}
+.inputData .imageBoxMain {
+  display: flex;
+  align-items: start;
+  margin-top: 15px;
+}
+.inputData .imageBoxMain .boxImage {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  min-height: 100px;
+  min-width: 100px;
+  border: 3px solid rgba(28, 43, 32, 0.514);
+  margin-right: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  .inputData .imageBoxMain .boxImage {
+    height: 70px;
+    width: 70px;
+    min-height: 70px;
+    min-width: 70px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData .imageBoxMain .boxImage {
+    height: 50px;
+    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .inputData .imageBoxMain .boxImage {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+.inputData .imageBoxMain .boxImage::before {
+  font-weight: 300;
+  font-size: 50px;
+  height: 100%;
+  width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .inputData .imageBoxMain .boxImage::before {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData .imageBoxMain .boxImage::before {
+    font-size: 30px;
+  }
+}
+.inputData .imageBoxMain .boxImage input {
+  transform: scale(2);
+  margin-top: 0;
+  opacity: 0;
+  position: absolute;
+}
+.inputData .imageBoxMain .multiImage {
+  max-width: unset;
+  overflow: unset;
+}
+.inputData .imageBoxMain .multiImage div[data-index=index] {
+  margin-top: 0;
+}
+@media screen and (max-width: 992px) {
+  .inputData .imageBoxMain .multiImage div[data-index=index] {
+    height: 70px;
+    width: 70px;
+    min-height: 70px;
+    min-width: 70px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData .imageBoxMain .multiImage div[data-index=index] {
+    height: 50px;
+    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .inputData .imageBoxMain .multiImage div[data-index=index] {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+.inputData .imageBoxMain .multiImage div[data-index=index] img[data-class=showImage] {
+  border: 3px solid rgba(28, 43, 32, 0.514);
+  border-radius: 10px;
+}
+@media screen and (max-width: 992px) {
+  .inputData .imageBoxMain .multiImage div[data-index=index] img[data-class=showImage] {
+    height: 70px;
+    width: 70px;
+    min-height: 70px;
+    min-width: 70px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .inputData .imageBoxMain .multiImage div[data-index=index] img[data-class=showImage] {
+    height: 50px;
+    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .inputData .imageBoxMain .multiImage div[data-index=index] img[data-class=showImage] {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+.inputData .passHideShow,
+.inputData .searching,
+.inputData .activeIcon {
+  position: absolute;
+  top: 65%;
+  transform: translateY(-30%);
+  right: 14px;
+  cursor: pointer;
+}
+.inputData.radio, .inputData.checkbox {
+  display: flex;
+  align-items: center;
+}
+.inputData.radio label, .inputData.checkbox label {
+  margin-bottom: 0;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.mk-btn {
+  background-color: rgba(28, 43, 32, 0.514);
+  color: #ffffff;
+  border-color: transparent;
+  padding: 10px 0;
+}
+
+/* ============= Login CSS ============= */
+.mainLoginPage {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainLoginPage .loginDiv .loginPage {
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(23, 30, 39, 0.431);
+  padding: 70px 35px;
+  border-radius: 30px;
+  width: 30% !important;
+}
+@media screen and (max-width: 992px) {
+  .mainLoginPage .loginDiv .loginPage {
+    width: 60% !important;
+    padding: 40px 25px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainLoginPage .loginDiv .loginPage {
+    width: 45% !important;
+    padding: 40px 25px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .mainLoginPage .loginDiv .loginPage {
+    width: 90% !important;
+    padding: 30px 20px;
+  }
+}
+.mainLoginPage .loginDiv .loginPage .welComeTitle {
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+  .mainLoginPage .loginDiv .loginPage .welComeTitle {
+    font-size: 17px;
+  }
+}
+.mainLoginPage .loginDiv .loginPage .title {
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+  .mainLoginPage .loginDiv .loginPage .title {
+    font-size: 17px;
+  }
+}
+
+.mainLoginPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+  z-index: 1; /* Ensure it sits on top of the background */
+}
+
+.mainLoginPage * {
+  position: relative;
+  z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* ============= Table CSS ============= */
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-bottom-width: 1px;
+  border-color: #d8d8d8;
+  padding: 12px;
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  tbody,
+  td,
+  tfoot,
+  th,
+  thead,
+  tr {
+    font-size: 12px;
+  }
+}
+
+thead {
+  color: white !important;
+}
+
+tbody td {
+  text-align: center !important;
+}
+tbody td:first-child {
+  text-align: center;
+  width: 70px;
+}
+
+thead th:first-child > div {
+  justify-content: center;
+}
+
+/* ======== Sub Table CSS ======== */
+.subTable tbody, .subTable td, .subTable tfoot, .subTable th, .subTable thead, .subTable tr {
+  padding: 5px;
+  border-color: transparent;
+}
+.subTable th, .subTable thead {
+  background-color: transparent !important;
+  border-top-width: 1px;
+  border-color: #b1b1b1;
+  position: sticky;
+  top: 0;
+}
+
+.mainTable {
+  max-height: calc(100vh - 117px - 250px);
+  min-height: calc(100vh - 117px - 250px);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  overflow: auto;
+}
+@media screen and (max-height: 650px) {
+  .mainTable {
+    max-height: calc(100vh - 117px - 0px);
+  }
+}
+.mainTable .primeTable {
+  width: 100%;
+  background-color: #ffffff;
+}
+.mainTable .primeTable tbody {
+  border: 1px solid rgba(163, 162, 162, 0.329);
+  border-top: 0;
+  font-weight: 500;
+}
+.mainTable .primeTable th, .mainTable .primeTable thead {
+  background-color: #092C1C;
+  position: sticky;
+  top: 0;
+  text-align: center !important;
+  z-index: 2;
+  font-weight: 600 !important;
+}
+.mainTable .primeTable .userProfile img {
+  border-radius: 10px;
+  border: 1px solid #d8d8d8;
+}
+
+/* ============= Title CSS ============= */
+.mainTitle {
+  margin-bottom: 20px;
+}
+.mainTitle .titlePath {
+  font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+  .mainTitle {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .mainTitle .titlePath {
+    font-size: 10px;
+  }
+}
+
+/* ============= Pagination CSS ============= */
+.pagination {
+  background-color: #FDFFFC;
+  padding: 20px;
+}
+@media screen and (max-width: 768px) {
+  .pagination {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pagination .client-pagination {
+    display: block !important;
+  }
+}
+.pagination .tableRang {
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .pagination .tableRang .inputData {
+    font-size: 12px;
+  }
+}
+.pagination .tableRang .inputData .selectMain {
+  margin-left: 10px;
+}
+.pagination .count {
+  margin-left: 15px;
+}
+@media screen and (max-width: 768px) {
+  .pagination .count {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+}
+.pagination .tableAccess {
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .pagination .tableAccess .mainPaginatinBtn {
+    justify-content: center;
+    margin-top: 10px !important;
+  }
+}
+.pagination .tableAccess .mainPaginatinBtn .paginationBtn {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 1px solid #092C1C;
+}
+@media screen and (max-width: 768px) {
+  .pagination .tableAccess .mainPaginatinBtn .paginationBtn {
+    margin: 0 3px;
+    height: 25px;
+    width: 25px;
+    font-size: 12px;
+  }
+}
+.pagination .tableAccess .mainPaginatinBtn .paginationBtn.pageBtnDisable {
+  border: 1px solid #092C1C;
+}
+.pagination .paginationNumber {
+  background-color: #fff !important;
+  color: #092C1C !important;
+}
+.pagination .paginationNumber.active {
+  background-color: #092C1C !important;
+  color: #ffffff !important;
+}
+
+/* ============= Dialog CSS ============= */
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4196078431);
+  z-index: 999;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.dialog .mainDiaogBox {
+  background-color: #fff;
+  padding: 20px;
+  max-height: 98vh;
+  overflow: auto;
+  border-radius: 32px !important;
+}
+.dialog .mainDiaogBox .formBody {
+  max-height: 600px;
+  overflow: auto;
+}
+.dialog .mainDiaogBox .formBody > div {
+  margin-bottom: 10px;
+}
+.dialog .mainDiaogBox .formBody .errorMessage {
+  color: red;
+}
+.dialog .mainDiaogBox .closeButton {
+  font-size: 30px;
+  background-color: rgba(28, 43, 32, 0.514);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  color: #fff;
+  margin-left: auto;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .dialog .mainDiaogBox h2 {
+    font-size: 20px;
+  }
+  .dialog .mainDiaogBox .closeButton {
+    font-size: 20px;
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.mainMultiSelector > .row {
+  position: relative;
+  border-radius: 10px;
+  border: dashed rgba(28, 43, 32, 0.514) 2px;
+  padding: 20px 30px !important;
+  margin: 20px 0 !important;
+}
+@media screen and (max-width: 576px) {
+  .mainMultiSelector > .row {
+    padding: 10px 0 !important;
+  }
+}
+.mainMultiSelector .multiRemover {
+  background-color: rgba(28, 43, 32, 0.514);
+  color: #ffffff;
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* ============= Page Dialogue CSS ============= */
+.formFooter {
+  padding: 10px 0 !important;
+}
+
+/* ============= Button CSS ============= */
+button.themeButton {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+@media screen and (max-width: 576px) {
+  button.themeButton {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}
+
+/* ============= Swal Warning CSS ============= */
+.swal2-container {
+  background: rgba(0, 0, 0, 0.075) !important;
+}
+.swal2-container .swal2-popup {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.swal2-container .swal2-popup .swal2-icon {
+  border: none !important;
+}
+.swal2-container .swal2-popup .swal2-icon .swal2-icon-content {
+  font-size: 5.75rem;
+  color: rgba(28, 43, 32, 0.514);
+}
+
+/* ============= Attributes CSS ============= */
+.attrDetails {
+  display: flex;
+  flex-wrap: wrap;
+}
+.attrDetails div {
+  background-color: #f3f3f3;
+  color: rgba(28, 43, 32, 0.514);
+  font-weight: 600;
+  padding: 6px 15px;
+  margin: 10px 5px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.colorBall {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
+@media screen and (max-width: 768px) {
+  .colorBall {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+#attrForm input[type=color] {
+  padding: 0;
+  outline: none;
+  border-width: 0;
+  border-color: transparent;
+}
+#attrForm input[type=color]::-webkit-color-swatch {
+  border: none;
+}
+
+.showDetails {
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 8px;
+}
+.showDetails li {
+  display: flex;
+  align-items: center;
+  background-color: #f3f3f3;
+  color: rgba(28, 43, 32, 0.514);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin: 10px;
+}
+@media screen and (max-width: 768px) {
+  .showDetails li {
+    font-size: 14px;
+  }
+}
+.showDetails li .cencalDetails {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.notiCount {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* ============= Toggle Button CSS ============= */
+.searchIcon {
+  border-radius: 0 20px 20px 0 !important;
+  border: 1px solid #092C1C;
+}
+
+.inputData select {
+  width: 100%;
+  height: 42px;
+  background-color: #ffffff;
+  margin-top: 4px;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  appearance: none;
+  background-image: url("../../images/free-arrow-down-icon-3101-thumb.png"); /* Replace 'arrow.png' with your arrow image */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+.inputData select::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+}
+
+.Toastify__toast-container p {
+  font-size: 14px !important;
+}
+
+input {
+  border: 1px solid #cfcfcf;
+}
+
+.switch {
+  --circle-dim: 1.4em;
+  font-size: 14px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f5aeae;
+  transition: 1.5s;
+  border-radius: 30px;
+}
+
+.slider-card {
+  position: absolute;
+  content: "";
+  height: var(--circle-dim);
+  width: var(--circle-dim);
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  transition: 0.4s;
+  pointer-events: none;
+}
+
+.slider-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  border-radius: 50%;
+  transition: 0.4s transform;
+}
+
+.slider-card-front {
+  background-color: #DC3535;
+}
+
+.slider-card-back {
+  background-color: #379237;
+  transform: rotateY(180deg);
+}
+
+input:checked ~ .slider-card .slider-card-back {
+  transform: rotateY(0);
+}
+
+input:checked ~ .slider-card .slider-card-front {
+  transform: rotateY(-180deg);
+}
+
+input:checked ~ .slider-card {
+  transform: translateX(1.5em);
+}
+
+input:checked ~ .slider {
+  background-color: #9ed99c;
+}
+
+.not-allowed {
+  pointer-events: auto !important;
+  cursor: auto !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+}
+
+.mainTable {
+  max-height: calc(100vh - 117px - 250px);
+  min-height: calc(100vh - 117px - 250px);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  overflow: auto;
+}
+
+.mainAdminGrid .mainSetting .settingBox .settingBoxOuter {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fcfdff;
+  border: 1px solid #cfcfcf;
+}/*# sourceMappingURL=custom.css.map */
